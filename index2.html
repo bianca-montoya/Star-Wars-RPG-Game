@@ -1,0 +1,172 @@
+
+<!-- The Star Wars RPG Game -->
+<!-- created: July 3, 2017 11:37AM -->
+<!-- Author: (Bianca Montoya) -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+  <title>The Star Wars RPG Game</title>
+
+  <!-- This is my site avatar. -->
+   <link rel="bianca montoya icon" href="https://gallery.mailchimp.com/2ad9b8b84e2a8399a9024f110/images/9e3f3ef6-b2f2-49f7-a898-8f926664408d.png" type="image/io">
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- My CSS -->
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- My JavaScript -->
+  <!-- <script src="assets/javascript/game2.js"></script> -->
+
+
+
+</head>
+
+<body>
+
+<div class="page-header">
+  <h1><small>The Star Wars RPG Game</small></h1>
+</div>
+
+
+<div class="row md">
+  <div class="col-xs-6 col-md-3 fighter" id="white-fighter">
+    <div class="thumbnail" >
+      <img src="assets/images/flametrooper-star-wars-white.png" style="display: block; 
+      margin: 0 auto; width: 100px;" />
+    </div>
+  </div>
+
+  <div class="col-xs-6 col-md-3 fighter" id="pink-fighter">
+    <div class="thumbnail" >
+      <img src="assets/images/flametrooper-star-wars-pink.png" style="display: block; 
+      margin: 0 auto; width: 100px;" />
+    </div>
+  </div>
+
+    <div class="col-xs-6 col-md-3 fighter" id="green-fighter">
+  
+    <div class="thumbnail">
+      <img src="assets/images/flametrooper-star-wars-green.png" style="display: block; 
+      margin: 0 auto; width: 100px;" />
+    </div>
+    
+  </div>
+
+  <div class="col-xs-6 col-md-3 fighter" id="blue-fighter">
+    <div class="thumbnail">
+      <img src="assets/images/flametrooper-star-wars-blue.png" style="display: block; 
+      margin: 0 auto; width: 100px;" />
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xs-10 col-md-10 enemyPos">
+    
+  </div>
+
+</div>
+
+<div class="row">
+<div class="col-xs-6 col-md-3">
+<h1><small>Your Character</small></h1>
+    <div class="your-character thumbnail" id="your-character">
+      
+    </div>
+  
+</div>
+
+<div class="col-xs-6 col-md-3">
+<h1><small>Openent Character</small></h1>
+    <div class="thumbnail" id="openent-character">
+      
+    </div>
+  
+</div>
+
+</div>
+
+
+
+  <script>
+    $(document).ready(function(){
+
+
+function fighter(healthPower, attackPower, basePower, name) {
+    this.healthPower = healthPower;
+    this.attackPower = attackPower;
+    this.basePower = basePower;
+    this.name = name;
+
+
+}
+
+var whiteFighter = new fighter(25, 8, 8, "White Fighter");
+var pinkFighter = new fighter(45, 10, 10, "Pink Fighter");
+var greenFighter = new fighter(30, 5, 5, "Green Fighter");
+var blueFighter = new fighter(12, 2, 2, "Blue Fighter");
+
+$("#white-fighter").append(whiteFighter.name + ("<br>") + "Health Power: " + whiteFighter.healthPower + " Attack Power: " + whiteFighter.attackPower);
+
+$("#pink-fighter").append(pinkFighter.name + ("<br>") + "Health Power: " + pinkFighter.healthPower + " Attack Power: " + pinkFighter.attackPower);
+
+$("#green-fighter").append(greenFighter.name + ("<br>") + "Health Power: " + greenFighter.healthPower + " Attack Power: " + greenFighter.attackPower);
+
+$("#blue-fighter").append(blueFighter.name + ("<br>") + "Health Power: " + blueFighter.healthPower + " Attack Power: " + blueFighter.attackPower);
+
+
+$(".fighter").on("click", function(){
+
+  
+$(this).removeClass("col-md-3 col-xs-6");
+$(this).removeClass("fighter");
+
+$(this).clone().appendTo("#your-character");
+$(this).empty();
+$(".fighter").addClass("myEnemies");
+
+$(".myEnemies").removeClass("fighter");
+$(".myEnemies").clone().appendTo(".enemyPos")
+$(".md").empty();
+
+
+
+
+
+
+});
+$(document).on("click",".myEnemies", function(){
+  $(this).removeClass("col-md-3 col-xs-6")
+$(this).clone().appendTo("#openent-character")
+$(this).empty();
+$(".myEnemies").prop('disabled', true);
+
+});
+
+
+    });
+
+  </script>
+ 
+</body>
+
+
+
+
+
+</html>
